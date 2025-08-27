@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react'
 import "./CardsShuffle.scss"
 import venusBack from "../../../assets/venustarot1.svg"
+import frameImg from "../../../assets/renaissanceFrame.png"
 
 function CardsShuffle() {
     const [cards, setCards] = useState([]);
@@ -34,8 +35,8 @@ function CardsShuffle() {
 
   return (
     <div className="card-shuffle-wrapper">
-      
-      <div className="container">
+      <img src={frameImg} alt='frame background' className='frame' />
+      <div className={`container ${shuffled ? "shuffled" : ""}`}>
         {cards.map((card, index) => (
           <div
             key={card.id}
@@ -50,10 +51,11 @@ function CardsShuffle() {
             </div>
           </div>
         ))}
+        
+          <button onClick={shuffledCards} className='btn-shuffle'>Shuffle</button>
+        
       </div>
-      <div className='btn-wrapper'>
-      <button onClick={shuffledCards}>Shuffle</button>
-      </div>
+      
     </div>
   )
 }
