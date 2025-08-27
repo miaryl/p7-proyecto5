@@ -1,4 +1,4 @@
-import styles from './Header.module.css';
+import styles from './Header.module.scss';
 import instagram from "../../assets/instagram.svg";
 import info from "../../assets/info.svg";
 
