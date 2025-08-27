@@ -1,6 +1,7 @@
 import React from "react";
 import "./Home.scss";
 import frameImg from "../../assets/renaissanceFrame.png";
+import { Link } from "react-router-dom";
 
 function Home() { 
   return (
@@ -17,8 +18,9 @@ function Home() {
             placeholder="Escribe tu nombre"
             className="question-input"
           />
-
-          <button className="choose-button">Elige las cartas</button>
+          <Link to="/shuffle" >
+            <button className="choose-button">Elige las cartas</button>
+          </Link>
         </div>
       </div>
     </div>

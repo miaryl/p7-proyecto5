@@ -52,7 +52,7 @@ function CardsShuffle() {
         ))}
       </div>
       <div className='btn-wrapper'>
-      <button onClick={shuffleCards}>Shuffle</button>
+      <button onClick={shuffledCards}>Shuffle</button>
       </div>
     </div>
   )
