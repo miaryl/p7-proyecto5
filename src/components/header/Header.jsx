@@ -1,9 +1,19 @@
-import React from 'react'
+import styles from './Header.module.css';
+import instagram from "../../assets/instagram.svg";
+import info from "../../assets/info.svg";
 
-function Header() {
+export default function Header() {
   return (
-    <div>Header</div>
-  )
-}
+      <header className={styles.header}>
+      <div className={styles.inner}>
+        <span className={styles.brand}>¿Pregunta del usuario?</span>
 
-export default Header
+        <div className={styles.actions}>
+          <img src={instagram} alt="" aria-hidden="true" className={styles.icon} />
+          <img src={info} alt="" aria-hidden="true" className={styles.icon} />
+        </div>
+        </div>
+      
+    </header>
+  );
+}
