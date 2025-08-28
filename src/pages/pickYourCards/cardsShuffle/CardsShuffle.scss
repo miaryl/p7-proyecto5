@@ -1,0 +1,69 @@
+@import url('https://fonts.googleapis.com/css2?family=Uncial+Antiqua&display=swap');
+.card-shuffle-wrapper {
+  position: relative;
+  display: flex;
+  justify-content: center;
+
+  .frame {
+    width: 2050px; 
+    max-width: 90%;
+    height: auto;
+    display: block;
+  }
+
+  .container {
+    position: absolute; 
+    inset: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .card {
+  position: absolute;
+  width: 80px;
+  height: 120px;
+  top: 50%;
+  left: 50%;
+  transform: translate(-100%, -100%);
+  transition: all 1.5s ease-in-out;
+  cursor: pointer;
+
+  &.shuffled {
+    &:nth-child(-n + 11) {
+      top: 39%;
+      left: calc(55% - 150px + (var(--index) * 50px));
+      
+    }
+
+    
+    &:nth-child(n + 12) {
+      top: 57%;
+      left: calc(40% - 250px + ((var(--index) - 11) * 50px));
+      
+    }
+  }
+
+  &:hover {
+    transform: translateY(10%) translateX(0);
+  }
+
+  &.selected {
+    transform: translateY(-30%) translateX(0);
+    z-index: 10;
+  }
+}
+
+  .btn-shuffle {
+    position: absolute;
+    bottom: 350px;       
+    left: 50%;
+    transform: translateX(-50%);
+    border-radius: 50%;
+    background-color: #74865C;
+    padding: 15px 30px;
+    cursor: pointer;
+    z-index: 20;   
+    font-family: 'Uncial Antiqua', serif;    
+  }
+}
