@@ -1,18 +1,14 @@
-
-import './App.css';
 import Header from './components/header/Header';
 import Home from './pages/home/Home';
+import './App.css'; 
 
-function App() {
+export default function App() {
   return (
     <>
       <Header />
-      <main>
+      <main className="root">
         <Home />
-        
       </main>
     </>
   );
 }
-
-export default App;
