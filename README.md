@@ -3,9 +3,13 @@ Somos una empresa de mujeres Developers Empoderadas.  Hemos desarrollado una apl
 
 ## :hammer_and_wrench:Herraminetas
 Figma
+
 Trello
+
 Visual Studio Code
+
 Git / GitHub
+
 Postman for the API
 
 ## :computer:Technologías
