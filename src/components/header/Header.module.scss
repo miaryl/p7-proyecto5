@@ -1,0 +1,47 @@
+.header {
+  position: fixed;          
+  top: 0; left: 0; right: 0;
+  background: transparent;
+  z-index: 50;
+}
+
+
+.row {
+  width: 95%;
+  margin: 0 auto;
+  padding: 12px 0;
+  display: flex !important;
+  align-items: center;
+  justify-content: space-between;
+}
+
+
+.title {
+  font-family: 'Uncial Antiqua', serif;
+  color: #2d1b4e;
+  font-size: 1.25rem;
+  letter-spacing: .2px;
+}
+
+
+.icons {
+  display: inline-flex !important;
+  align-items: center;
+  gap: 10px;
+  white-space: nowrap;
+}
+
+.icon {
+  width: 22px;
+  height: 22px;
+  display: inline-block !important;  
+  filter: opacity(.9);
+  transition: transform .12s ease, filter .12s ease;
+
+  &:hover { filter: opacity(1); transform: translateY(-1px); }
+}
+
+@media (max-width: 520px) {
+  .title { font-size: 1.05rem; }
+  .icon { width: 20px; height: 20px; }
+}

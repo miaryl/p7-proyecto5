@@ -1,6 +1,8 @@
 .root {
-    background-color: #fdfcf6;
-    display: flex;
-    justify-content: center;
-    align-items: center;
+  background-color: #fdfcf6;
+  min-height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 72px 16px 16px;  
 }
