@@ -10,7 +10,7 @@ export default function SaveReadingBlock({ cards }) {
     e.preventDefault();
     setMsg("");
     const name = userName.trim();
-    if (!name) return setMsg("EscribeÑ tu nombre reina");
+    if (!name) return setMsg("Escribe tu nombre reina");
     if (!cards || !cards.length) return setMsg("No hay cartas para guardar.");
 
     try {

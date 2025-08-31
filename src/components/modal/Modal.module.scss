@@ -1,0 +1,34 @@
+.backdrop {
+  position: fixed; inset: 0;
+  background: rgba(0,0,0,.45);
+  display: grid; place-items: center;
+  z-index: 100;
+}
+
+.dialog {
+  background: #fff;
+  color: #1b1b1b;
+  width: min(92vw, 640px);
+  border-radius: 14px;
+  box-shadow: 0 10px 30px rgba(0,0,0,.25);
+  outline: none;
+}
+
+.header {
+  display: flex; justify-content: space-between; align-items: center;
+  padding: 14px 16px 0 16px;
+}
+.header h2 {
+  margin: 0;
+  font-family: 'Uncial Antiqua', serif;
+  font-size: 1.4rem;
+  color: #2d1b4e;
+}
+
+.close {
+  appearance: none; border: 0; background: transparent;
+  font-size: 28px; line-height: 1; cursor: pointer;
+  color: #4b2e83;
+}
+
+.content { padding: 12px 16px 18px; }
