@@ -27,21 +27,49 @@
 .icons {
   display: inline-flex !important;
   align-items: center;
-  gap: 10px;
+  gap: 14px;
   white-space: nowrap;
 }
 
 .icon {
-  width: 22px;
-  height: 22px;
-  display: inline-block !important;  
+  width: 30px;                   
+  height: 30px;
+  display: inline-block !important;
   filter: opacity(.9);
   transition: transform .12s ease, filter .12s ease;
 
-  &:hover { filter: opacity(1); transform: translateY(-1px); }
+  &:hover { filter: opacity(1); transform: translateY(-1px) scale(1.02); }
 }
+
+.iconBtn {
+  -webkit-appearance: none;
+  appearance: none;
+  background: transparent;
+  border: 0;
+  padding: 6px;                
+  border-radius: 8px;
+  margin: 0;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  line-height: 0;
+  cursor: pointer;
+  border-radius: 6px;
+}
+
+.iconBtn:focus-visible {
+  outline: 2px solid #2d1b4e;
+  outline-offset: 2px;
+}
+
 
 @media (max-width: 520px) {
   .title { font-size: 1.05rem; }
-  .icon { width: 20px; height: 20px; }
+  .icon { width: 26px; height: 26px; }
 }
+         
+
+
+
+
+
