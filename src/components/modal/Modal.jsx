@@ -42,3 +42,4 @@ export default function Modal({ open, onClose, title = "Información", children 
     </div>
   );
 }
+

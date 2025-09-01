@@ -22,3 +22,4 @@ export default function InfoModal({ open, onClose }) {
     </Modal>
   );
 }
+
