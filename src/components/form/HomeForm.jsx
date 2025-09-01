@@ -7,9 +7,9 @@ import "./HomeForm.scss";
 function HomeForm() {
   const [nombre, setNombre] = useState("");
   const navigate = useNavigate();
-  const toastShown = useRef(false); 
+  const toastShown = useRef(false);
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
 
     if (!nombre.trim()) {
@@ -20,7 +20,28 @@ function HomeForm() {
       return;
     }
 
-    navigate("/shuffle");
+    try {
+      
+      const response = await fetch("http://localhost:3000/users", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({ nombre }),
+      });
+
+      if (!response.ok) {
+        throw new Error("Error al guardar el nombre");
+      }
+
+      toast.success("✅ Nombre guardado con éxito");
+
+      setNombre("");
+      navigate("/shuffle"); 
+    } catch (error) {
+      console.error(error);
+      toast.error("❌ No se pudo guardar el nombre");
+    }
   };
 
   return (
