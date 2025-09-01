@@ -5,16 +5,16 @@ import "../../App.css";
 import "./HomeForm.scss";
 
 function HomeForm() {
-  const [nombre, setNombre] = useState("");
+  const [name, setName] = useState("");
   const navigate = useNavigate();
   const toastShown = useRef(false);
 
   const handleSubmit = async (e) => {
     e.preventDefault();
 
-    if (!nombre.trim()) {
+    if (!name.trim()) {
       if (!toastShown.current) {
-        toast.error("⚠️ Por favor escribe tu nombre para continuar");
+        toast.error("Por favor escribe tu nombre para continuar");
         toastShown.current = true;
       }
       return;
@@ -27,20 +27,20 @@ function HomeForm() {
         headers: {
           "Content-Type": "application/json",
         },
-        body: JSON.stringify({ nombre }),
+        body: JSON.stringify({ name }),
       });
 
       if (!response.ok) {
         throw new Error("Error al guardar el nombre");
       }
 
-      toast.success("✅ Nombre guardado con éxito");
+      toast.success("Nombre guardado con éxito");
 
-      setNombre("");
+      setName("");
       navigate("/shuffle"); 
     } catch (error) {
       console.error(error);
-      toast.error("❌ No se pudo guardar el nombre");
+      toast.error("No se pudo guardar el nombre");
     }
   };
 
@@ -51,10 +51,10 @@ function HomeForm() {
           Nombre
         </label>
         <input
-          id="nombre"
+          id="name"
           type="text"
-          value={nombre}
-          onChange={(e) => setNombre(e.target.value)}
+          value={name}
+          onChange={(e) => setName(e.target.value)}
           placeholder="Escribe tu nombre"
           className="question-input"
         />

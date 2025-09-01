@@ -1,3 +1,9 @@
 {
-  "readings": []
+  "readings": [],
+  "users": [
+    {
+      "id": "9624",
+      "name": "Alejandra"
+    }
+  ]
 }
