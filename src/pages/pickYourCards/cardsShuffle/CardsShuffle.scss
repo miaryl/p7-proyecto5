@@ -44,9 +44,6 @@
     }
   }
 
-  &:hover {
-    transform: translateY(10%) translateX(0);
-  }
 
   &.selected {
     transform: translateY(-30%) translateX(0);
@@ -64,6 +61,14 @@
     padding: 15px 30px;
     cursor: pointer;
     z-index: 20;   
-    font-family: 'Uncial Antiqua', serif;    
+    font-family: 'Uncial Antiqua', serif;  
+    color: white;  
   }
+}
+
+p{
+  position: absolute;
+  bottom: 950px;
+  font-family: 'Uncial Antiqua', serif;
+  font-weight: bold;;
 }
