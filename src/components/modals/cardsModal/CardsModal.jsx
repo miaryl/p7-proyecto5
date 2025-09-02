@@ -16,7 +16,7 @@ function CardsModal({show, cardSelected, cards, onShuffle, onResult}) {
         })}
       </div>
       <div className='btn-wrapper'>
-      <ShuffleButton onClick={onShuffle}/>
+      <ShuffleButton onClick={onShuffle} className="btn-shuffle"/>
       <button onClick={onResult} className='btn-result'>Resultado</button>
       </div>
     </div>

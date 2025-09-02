@@ -1,4 +1,6 @@
 @import url('https://fonts.googleapis.com/css2?family=Uncial+Antiqua&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Lora:wght@400;500;600;700&display=swap');
+
 
 
 .modal-overlay {
@@ -52,21 +54,43 @@
 }
 
 .btn-wrapper button, 
-.btn-wrapper .shuffle-btn {  
+.btn-wrapper .btn-shuffle {  
   position: static !important;
-    display: inline-flex;       
+  display: inline-flex;    
   width: auto;                
 }
 
 .btn-result {
   background-color: #74865C;
-  border-radius: 50%;
-  padding: 15px 30px;
+  border-radius: 25px;
+  padding: 20px 55px;
   cursor: pointer;
-  font-family: 'Uncial Antiqua', serif;
+  font-family: 'lora', serif;
   color: white;
   border: none;
-  font-size: 1rem;
+  font-size: larger;
+   font-weight: bold;
+  letter-spacing: 6px;
+  outline: none;
+
+  &:focus {
+    outline: none;
+  }
+
+  &:active {
+    transform: scale(0.98); 
+  }
   
+  }
+  .btn-shuffle{
+    margin-left: 70px;
+    outline: none;
+
+  &:focus {
+    outline: none;
+  }
+  &:active {
+    transform: translateX(-50%) scale(0.98); 
+  }
   }
 
