@@ -34,10 +34,12 @@ function HomeForm() {
         throw new Error("Error al guardar el nombre");
       }
 
+      const createdUser = await response.json();
+
       toast.success("Nombre guardado con éxito");
 
       setName("");
-      navigate("/shuffle"); 
+      navigate("/shuffle", { state: { userId: createdUser.id } }); 
     } catch (error) {
       console.error(error);
       toast.error("No se pudo guardar el nombre");

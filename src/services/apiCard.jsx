@@ -1,14 +1,40 @@
 import axios from "axios";
 
+const apiCLient = axios.create({
+    baseURL: "http://localhost:3000"
+});
+
 export const api = ()=>{
     const url = "https://6872278c76a5723aacd3cbb3.mockapi.io/api/v1/tarot";
 
     const getTarot =()=>{
-        const response = axios.get(url);
-        return response;
+        return axios.get(url);
+    };
+
+    const getLastUser = () =>{
+        return apiCLient.get("/users?_sort=id&_order=desc&_limit=1")
+        .then(res => res.data[0]);
     }
+    
+    const addReading = (userId, cardIds) =>{
+        return apiCLient.get(`/users/${userId}`).then(res=>{
+            const user = res.data;
+            const readings = user.readings ? [...user.readings] : [];
+            readings.push({
+                id: readings.length +1,
+                cards: cardIds,
+                date: new Date().toISOString()
+            });
+            return apiCLient.put(`/users/${userId}`, {...user, readings});
+        });
+
+    };
+
+    
 
     return{
-        getTarot
-    }
-}
+        getTarot,
+        addReading,
+        getLastUser
+    };
+};

@@ -51,18 +51,13 @@
   }
 }
 
-  .btn-shuffle {
+  .shuffle-btn {
     position: absolute;
     bottom: 350px;       
     left: 50%;
     transform: translateX(-50%);
     border-radius: 50%;
-    background-color: #74865C;
-    padding: 15px 30px;
-    cursor: pointer;
     z-index: 20;   
-    font-family: 'Uncial Antiqua', serif;  
-    color: white;  
   }
 }
 
