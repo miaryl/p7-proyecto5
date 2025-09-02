@@ -5,22 +5,45 @@ import "../../App.css";
 import "./HomeForm.scss";
 
 function HomeForm() {
-  const [nombre, setNombre] = useState("");
+  const [name, setName] = useState("");
   const navigate = useNavigate();
-  const toastShown = useRef(false); 
+  const toastShown = useRef(false);
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
 
-    if (!nombre.trim()) {
+    if (!name.trim()) {
       if (!toastShown.current) {
-        toast.error("⚠️ Por favor escribe tu nombre para continuar");
+        toast.error("Por favor escribe tu nombre para continuar");
         toastShown.current = true;
       }
       return;
     }
 
-    navigate("/shuffle");
+    try {
+      
+      const response = await fetch("http://localhost:3000/users", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({ name }),
+      });
+
+      if (!response.ok) {
+        throw new Error("Error al guardar el nombre");
+      }
+
+      const createdUser = await response.json();
+
+      toast.success("Nombre guardado con éxito");
+
+      setName("");
+      navigate("/shuffle", { state: { userId: createdUser.id } }); 
+    } catch (error) {
+      console.error(error);
+      toast.error("No se pudo guardar el nombre");
+    }
   };
 
   return (
@@ -30,10 +53,10 @@ function HomeForm() {
           Nombre
         </label>
         <input
-          id="nombre"
+          id="name"
           type="text"
-          value={nombre}
-          onChange={(e) => setNombre(e.target.value)}
+          value={name}
+          onChange={(e) => setName(e.target.value)}
           placeholder="Escribe tu nombre"
           className="question-input"
         />

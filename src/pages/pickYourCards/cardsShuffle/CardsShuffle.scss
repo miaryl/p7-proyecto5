@@ -44,9 +44,6 @@
     }
   }
 
-  &:hover {
-    transform: translateY(10%) translateX(0);
-  }
 
   &.selected {
     transform: translateY(-30%) translateX(0);
@@ -54,16 +51,19 @@
   }
 }
 
-  .btn-shuffle {
+  .shuffle-btn {
     position: absolute;
     bottom: 350px;       
     left: 50%;
     transform: translateX(-50%);
     border-radius: 50%;
-    background-color: #74865C;
-    padding: 15px 30px;
-    cursor: pointer;
     z-index: 20;   
-    font-family: 'Uncial Antiqua', serif;    
   }
+}
+
+p{
+  position: absolute;
+  bottom: 950px;
+  font-family: 'Uncial Antiqua', serif;
+  font-weight: bold;;
 }
