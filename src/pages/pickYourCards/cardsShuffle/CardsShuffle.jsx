@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import "./CardsShuffle.module.scss";
+import "./CardsShuffle.scss";
 import toast from "react-hot-toast";
 import { api } from "../../../services/apiCard";
 import RandomCards from "../../../components/randomCards/RandomCards";
