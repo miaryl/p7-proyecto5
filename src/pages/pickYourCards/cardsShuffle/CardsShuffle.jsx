@@ -68,7 +68,7 @@ const handleResult = ()=>{
   apiTarot.addReading(currentUserId, cardSelected)
   .then(()=>{
     setShowModal(false);
-    navigate("/reading", { state: { selectedCards: cardSelected } });
+    navigate("/reading", { state: { selectedCards: cardSelected} });
 
   })
   .catch((error)=>{
