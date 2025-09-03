@@ -62,11 +62,18 @@ function CardsShuffle() {
     }
   };
 
-  const handleResult = () => {
-    if (!currentUserId) {
-      toast.error("No existe este usuario");
-      return;
-    }
+
+const handleResult = ()=>{
+  if(!currentUserId){
+    toast.error("No existe este usuario");
+    return;
+  }
+
+  apiTarot.addReading(currentUserId, cardSelected)
+  .then(()=>{
+    setShowModal(false);
+    navigate("/reading", { state: { selectedCards: cardSelected} });
+
 
     apiTarot
       .addReading(currentUserId, cardSelected)
