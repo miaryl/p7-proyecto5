@@ -12,7 +12,9 @@ function Reading() {
     if (selectedCards.length > 0) {
       Promise.all(
         selectedCards.map((id) =>
-          axios.get(`https://6872278c76a5723aacd3cbb3.mockapi.io/api/v1/tarot/${id}`)
+          axios.get(
+            `https://6872278c76a5723aacd3cbb3.mockapi.io/api/v1/tarot/${id}`
+          )
         )
       )
         .then((responses) => {
@@ -22,40 +24,45 @@ function Reading() {
     }
   }, [selectedCards]);
 
+  // etiquetas de cada posición
+  const labels = ["Pasado", "Presente", "Futuro"];
+
   return (
     <div className="reading-wrapper">
-      <h2>Tu lectura</h2>
-      {cardsData.length === 0 ? (
-        <p>Cargando cartas...</p>
-      ) : (
-        <>
-          <div className="card-result">
-            <h3>Pasado</h3>
-            <img src={cardsData[0]?.arcaneImage.imageSrc} alt={cardsData[0]?.arcaneName} />
-            <p><strong>{cardsData[0]?.arcaneName}</strong></p>
-            <img src={cardsData[0]?.goddessImage.imageSrc} alt={cardsData[0]?.goddesName} />
-            <p><strong>{cardsData[0]?.arcaneName}</strong></p>
-            <p>Diosa: {cardsData[0]?.goddessName}</p>
-            <p>{cardsData[0]?.goddessDescription}</p>
-          </div>
+      {cardsData.map((card, index) => (
+        <div className="card-result" key={card.id || index}>
+          <div className="card-content">
+            {/* Label */}
+            <div className="label">
+              <h3>{labels[index]}</h3>
+            </div>
 
-          <div className="card-result">
-            <h3>Presente</h3>
-            <img src={cardsData[1]?.goddessImage.imageSrc} alt={cardsData[1]?.arcaneName} />
-            <p><strong>{cardsData[1]?.arcaneName}</strong></p>
-            <p>Diosa: {cardsData[1]?.goddessName}</p>
-            <p>{cardsData[1]?.goddessDescription}</p>
-          </div>
+            {/* Imagen de la carta */}
+            <div className="arcane-image">
+              <img
+                src={card.arcaneImage?.imageSrc}
+                alt={card.arcaneName}
+              />
+            </div>
 
-          <div className="card-result">
-            <h3>Futuro</h3>
-            <img src={cardsData[2]?.goddessImage.imageSrc} alt={cardsData[2]?.arcaneName} />
-            <p><strong>{cardsData[2]?.arcaneName}</strong></p>
-            <p>Diosa: {cardsData[2]?.goddessName}</p>
-            <p>{cardsData[2]?.goddessDescription}</p>
+            {/* Texto de la carta */}
+            <div className="arcane-text">
+              <h4>{card.arcaneName}</h4>
+              <p>{card.arcaneDescription}</p>
+            </div>
+
+            {/* Diosa */}
+            <div className="goddess">
+              <img
+                src={card.goddessImage?.imageSrc}
+                alt={card.goddessName}
+              />
+              <h4>{card.goddessName}</h4>
+              <p>{card.goddessDescription}</p>
+            </div>
           </div>
-        </>
-      )}
+        </div>
+      ))}
     </div>
   );
 }
