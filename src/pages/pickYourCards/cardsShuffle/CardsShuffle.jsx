@@ -1,7 +1,6 @@
 import React, { useEffect, useState } from "react";
 import "./CardsShuffle.scss";
 import toast from "react-hot-toast";
-import frameImg from "../../../assets/renaissanceFrame.png";
 import { api } from "../../../services/apiCard";
 import RandomCards from "../../../components/randomCards/RandomCards";
 import ShuffleButton from "../../../components/buttons/shuffleButton/ShuffleButton";
@@ -15,7 +14,9 @@ function CardsShuffle() {
   const [showModal, setShowModal] = useState(false);
 
   const location = useLocation();
-  const [currentUserId, setCurrentUserId] = useState(location.state?.userId || null);
+  const [currentUserId, setCurrentUserId] = useState(
+    location.state?.userId || null
+  );
 
   const apiTarot = api();
   const navigate = useNavigate();
@@ -26,23 +27,25 @@ function CardsShuffle() {
     });
   }, []);
 
-  useEffect(()=>{
-    if(cardSelected.length === 3){
-      setShowModal(true);
+  useEffect(() => {
+    if (cardSelected.length === 3) {
+      setTimeout(() => {
+        setShowModal(true);
+      }, 1300);
+      
     }
   }, [cardSelected]);
 
   useEffect(() => {
-    if(!currentUserId){
-      apiTarot.getLastUser()
-      .then(user =>{
-        if(user) setCurrentUserId(user.id);
-      })
-      .catch(err => console.error(err));
+    if (!currentUserId) {
+      apiTarot
+        .getLastUser()
+        .then((user) => {
+          if (user) setCurrentUserId(user.id);
+        })
+        .catch((err) => console.error(err));
     }
- 
   }, [currentUserId]);
-
 
   const shuffledCards = () => {
     setCards([...cards].sort(() => Math.random() - 0.5));
@@ -59,6 +62,7 @@ function CardsShuffle() {
     }
   };
 
+
 const handleResult = ()=>{
   if(!currentUserId){
     toast.error("No existe este usuario");
@@ -70,44 +74,46 @@ const handleResult = ()=>{
     setShowModal(false);
     navigate("/reading", { state: { selectedCards: cardSelected} });
 
-  })
-  .catch((error)=>{
-    console.error(error);
-     toast.error("No se pudo guardar la lectura");
-  })
-};
 
-const handleModalShuffle=()=>{
-  setShowModal(false);
-  shuffledCards();
-};
+    apiTarot
+      .addReading(currentUserId, cardSelected)
+      .then(() => {
+        setShowModal(false);
+        navigate("/reading", { state: { selectedCards: cardSelected } });
+      })
+      .catch((error) => {
+        console.error(error);
+        toast.error("No se pudo guardar la lectura");
+      });
+  };
+
+  const handleModalShuffle = () => {
+    setShowModal(false);
+    shuffledCards();
+  };
 
   return (
     <>
       <div className="card-shuffle-wrapper">
-      
-      <img src={frameImg} alt="frame background" className="frame" />
+        <div className={`container ${shuffled ? "shuffled" : ""}`}>
+          <h3>Elige 3 cartas: Pasado, presente y futuro</h3>
+          <RandomCards
+            cards={cards}
+            shuffled={shuffled}
+            cardSelected={cardSelected}
+            onSelect={handleSelect}
+          />
 
-      <div className={`container ${shuffled ? "shuffled" : ""}`}>
-        <p>Elige tres cartas: Pasado, presente y futuro</p>
-        <RandomCards
-          cards={cards}
-          shuffled={shuffled}
-          cardSelected={cardSelected}
-          onSelect={handleSelect}
-        />
-
-        <ShuffleButton onClick={shuffledCards} className="shuffle-btn"/>
-        <CardsModal 
-          show={showModal}
-          cards={cards}
-          cardSelected={cardSelected}
-          onShuffle={handleModalShuffle}
-          onResult={handleResult}
-         />
+          <ShuffleButton onClick={shuffledCards} className="shuffle-btn" />
+          <CardsModal
+            show={showModal}
+            cards={cards}
+            cardSelected={cardSelected}
+            onShuffle={handleModalShuffle}
+            onResult={handleResult}
+          />
+        </div>
       </div>
-    </div>
-      
     </>
   );
 }

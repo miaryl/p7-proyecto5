@@ -1,15 +1,17 @@
 @import url('https://fonts.googleapis.com/css2?family=Uncial+Antiqua&display=swap');
+body {
+  background: linear-gradient(to bottom, #E7DBB5 0%, #FFFFFF 100%);
+}
+
+
+
 .card-shuffle-wrapper {
   position: relative;
   display: flex;
   justify-content: center;
+  min-height: 100vh; 
 
-  .frame {
-    width: 2050px; 
-    max-width: 90%;
-    height: auto;
-    display: block;
-  }
+ 
 
   .container {
     position: absolute; 
@@ -20,50 +22,49 @@
   }
 
   .card {
-  position: absolute;
-  width: 80px;
-  height: 120px;
-  top: 50%;
-  left: 50%;
-  transform: translate(-100%, -100%);
-  transition: all 1.5s ease-in-out;
-  cursor: pointer;
+    position: absolute;
+    width: 80px;
+    height: 120px;
+    top: 50%;
+    left: 50%;
+    transform: translate(-100%, -100%);
+    transition: all 1.5s ease-in-out;
+    cursor: pointer;
 
-  &.shuffled {
-    &:nth-child(-n + 11) {
-      top: 39%;
-      left: calc(55% - 150px + (var(--index) * 50px));
-      
+    &.shuffled {
+      &:nth-child(-n + 12) {
+        top: 38%;
+        left: calc(55% - 130px + (var(--index) * 63px));
+      }
+
+      &:nth-child(n + 13) {
+        top: 63%;
+        left: calc(40% - 350px + ((var(--index) - 11) * 63px));
+      }
     }
 
-    
-    &:nth-child(n + 12) {
-      top: 57%;
-      left: calc(40% - 250px + ((var(--index) - 11) * 50px));
-      
+    &.selected {
+      transform: translateY(-30%) translateX(0);
+      z-index: 10;
     }
   }
-
-
-  &.selected {
-    transform: translateY(-30%) translateX(0);
-    z-index: 10;
-  }
-}
 
   .shuffle-btn {
     position: absolute;
-    bottom: 350px;       
+    bottom: 100px;       
     left: 50%;
     transform: translateX(-50%);
-    border-radius: 50%;
-    z-index: 20;   
+    border-radius: 25px;
+    z-index: 20;  
+    margin-left: 0;
+
   }
 }
 
-p{
+h3 {
   position: absolute;
-  bottom: 950px;
+  bottom: 700px;
   font-family: 'Uncial Antiqua', serif;
-  font-weight: bold;;
+  font-weight: bold;
+  letter-spacing: 8px;
 }

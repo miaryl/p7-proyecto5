@@ -1,5 +1,6 @@
 import React from 'react';
 import venusBack from "../../assets/venustarot1.svg";
+import './RandomCards.scss';
 
 function RandomCards({cards, shuffled, cardSelected, onSelect}) {
 
