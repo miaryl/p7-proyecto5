@@ -31,7 +31,9 @@ function Reading() {
         <>
           <div className="card-result">
             <h3>Pasado</h3>
-            <img src={cardsData[0]?.goddessImage.imageSrc} alt={cardsData[0]?.arcaneName} />
+            <img src={cardsData[0]?.arcaneImage.imageSrc} alt={cardsData[0]?.arcaneName} />
+            <p><strong>{cardsData[0]?.arcaneName}</strong></p>
+            <img src={cardsData[0]?.goddessImage.imageSrc} alt={cardsData[0]?.goddesName} />
             <p><strong>{cardsData[0]?.arcaneName}</strong></p>
             <p>Diosa: {cardsData[0]?.goddessName}</p>
             <p>{cardsData[0]?.goddessDescription}</p>
