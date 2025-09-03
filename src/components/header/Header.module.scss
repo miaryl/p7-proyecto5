@@ -62,16 +62,15 @@
   outline-offset: 2px;
 }
 
-/* El resto se queda igual */
+
 .logo {
-  width: 36px;   /* antes 30px */
+  width: 36px;   
   height: 36px;
-  /* por si algún SVG viene “grande” */
   max-height: 100%;
   object-fit: contain;
 }
 
-/* En móvil lo igualamos para no cargar el header */
+
 @media (max-width: 520px) {
   .logo { width: 30px; height: 30px; }
 }
@@ -80,9 +79,9 @@
 .left {
   display: inline-flex !important;
   align-items: center;
-  gap: 14px; /* mismo gap que .icons */
+  gap: 14px; 
 }
-/* Ya usas .icon (30x30) y .iconBtn, así que el logo hereda tamaño y padding */
+
 
 
 @media (max-width: 520px) {
@@ -90,7 +89,12 @@
   .icon { width: 26px; height: 26px; }
 }
          
-
+.userName {
+  font-size: 1.2rem;
+  font-weight: bold;
+  color: #333; 
+  margin: 0 auto;
+}
 
 
 
