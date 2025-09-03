@@ -15,6 +15,7 @@ function App() {
         <Route path="/shuffle" element={<CardsShuffle />} />
         <Route path="/info" element={<Home />} />
         <Route path="/reading" element={<Reading />} />
+        <Route path="/history" element={<History />} />
       </Routes>
     </BrowserRouter>
   );

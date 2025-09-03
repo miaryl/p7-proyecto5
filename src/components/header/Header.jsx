@@ -1,3 +1,4 @@
+import { useState, useEffect } from "react";
 import { useLocation, useNavigate } from "react-router-dom";
 import s from "./Header.module.scss";
 import instagram from "../../assets/instagram.svg";
@@ -11,6 +12,18 @@ export default function Header() {
   const { pathname } = useLocation();
   const isInfo = pathname === "/info";
 
+  const [username, setUsername] = useState("");
+
+
+  useEffect(() => {
+    const storedName = localStorage.getItem("currentUserName");
+    if (storedName) {
+      setUsername(storedName);
+    } else {
+      setUsername(""); 
+    }
+  }, [pathname]);
+
   const openInfo = () => navigate("/info");
   const closeInfo = () => navigate(-1);
 
@@ -18,7 +31,6 @@ export default function Header() {
     <>
       <header className={s.header}>
         <div className={s.row}>
-          {/* Izquierda: logo (un pelín más grande) */}
           <div className={s.left}>
             <button
               className={s.iconBtn}
@@ -28,15 +40,20 @@ export default function Header() {
               <img
                 src={logo}
                 alt="Las Venus del Tarot"
-                className={`${s.icon} ${s.logo}`}   // 👈 cambio
+                className={`${s.icon} ${s.logo}`}
               />
             </button>
+
+            {username && <span className={s.userName}>{username}</span>}
           </div>
 
-          {/* Derecha: iconos */}
           <div className={s.icons}>
             <img src={instagram} alt="Instagram" className={s.icon} />
-            <button className={s.iconBtn} onClick={openInfo} aria-label="Información">
+            <button
+              className={s.iconBtn}
+              onClick={openInfo}
+              aria-label="Información"
+            >
               <img src={info} alt="" aria-hidden="true" className={s.icon} />
             </button>
           </div>

@@ -24,7 +24,7 @@ function Reading() {
     }
   }, [selectedCards]);
 
-  // etiquetas de cada posición
+  
   const labels = ["Pasado", "Presente", "Futuro"];
 
   return (
@@ -32,12 +32,12 @@ function Reading() {
       {cardsData.map((card, index) => (
         <div className="card-result" key={card.id || index}>
           <div className="card-content">
-            {/* Label */}
+    
             <div className="label">
               <h3>{labels[index]}</h3>
             </div>
 
-            {/* Imagen de la carta */}
+            
             <div className="arcane-image">
               <img
                 src={card.arcaneImage?.imageSrc}
@@ -45,13 +45,13 @@ function Reading() {
               />
             </div>
 
-            {/* Texto de la carta */}
+            
             <div className="arcane-text">
               <h4>{card.arcaneName}</h4>
               <p>{card.arcaneDescription}</p>
             </div>
 
-            {/* Diosa */}
+            
             <div className="goddess">
               <img
                 src={card.goddessImage?.imageSrc}
@@ -63,6 +63,11 @@ function Reading() {
           </div>
         </div>
       ))}
+      <div className="history-button">
+        <button onClick={() => navigate("/historial")}>
+          Ir al historial
+        </button>
+      </div>
     </div>
   );
 }

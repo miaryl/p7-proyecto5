@@ -1,10 +1,13 @@
+@import url('https://fonts.googleapis.com/css2?family=Uncial+Antiqua&display=swap');
+
+
 .reading-wrapper {
   display: flex;
   flex-direction: column;
   gap: 3rem;
   padding: 2rem;
   background: linear-gradient(to bottom right, #fdf6e3, #f8f4e9);
-  font-family: "Cormorant Garamond", serif;
+  font-family: 'Uncial Antiqua', serif;
 
   .card-result {
     display: flex;
@@ -22,18 +25,18 @@
     max-width: 1200px;
   }
 
-  /* Label grande arriba */
+  
   .label {
     grid-column: 1 / -1;
     text-align: left;
     font-size: 2.4rem;
     font-weight: bold;
     margin-bottom: 1rem;
-    font-family: "UnifrakturCook", cursive; /* fuente gótica decorativa */
+    font-family: 'Uncial Antiqua', serif; 
     color: #222;
   }
 
-  /* Imagen del arcano */
+ 
   .arcane-image {
     img {
       width: 100%;
@@ -43,9 +46,9 @@
     }
   }
 
-  /* Texto del arcano */
+  
   .arcane-text {
-    background: #dce9d2; /* verde claro */
+    background: #dce9d2; 
     padding: 1.5rem;
     border-radius: 20px;
     font-size: 1rem;
@@ -58,9 +61,9 @@
     }
   }
 
-  /* Diosa */
+  
   .goddess {
-    background: #ffe2d6; /* rosa melocotón */
+    background: #ffe2d6; 
     padding: 1.5rem;
     border-radius: 20px;
     display: flex;
@@ -80,13 +83,36 @@
       font-weight: bold;
       font-size: 1.3rem;
       margin-bottom: 0.5rem;
-      font-family: "UnifrakturCook", cursive; /* igual que el título */
+      font-family: 'Uncial Antiqua', serif; 
     }
 
 
     p {
       font-size: 1rem;
       line-height: 1.5;
+
+    }
+  }
+}
+.history-button {
+  display: flex;
+  justify-content: center;
+  margin-top: 2rem;
+
+  button {
+    background-color: #6b7f56; /* verde similar */
+    color: #fff;
+    font-family: 'Uncial Antiqua', serif;
+    font-size: 1.1rem;
+    font-weight: 600;
+    padding: 0.6rem 2rem;
+    border: none;
+    border-radius: 999px; /* súper redondeado */
+    cursor: pointer;
+    transition: background 0.3s ease;
+
+    &:hover {
+      background-color: #556642;
     }
   }
 }
