@@ -1,52 +1,118 @@
-.reading-wrapper {
-  max-width: 900px;
-  margin: 2rem auto;
-  padding: 1.5rem;
-  background: #fffaf6;
-  border-radius: 12px;
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
-  text-align: center;
+@import url('https://fonts.googleapis.com/css2?family=Uncial+Antiqua&display=swap');
 
-  h2 {
-    font-size: 2rem;
-    margin-bottom: 2rem;
-    color: #5e2b5e;
-  }
+
+.reading-wrapper {
+  display: flex;
+  flex-direction: column;
+  gap: 3rem;
+  padding: 2rem;
+  background: linear-gradient(to bottom right, #fdf6e3, #f8f4e9);
+  font-family: 'Uncial Antiqua', serif;
 
   .card-result {
-    margin-bottom: 2rem;
-    padding: 1rem;
-    border-radius: 10px;
-    background: #fdf1f9;
-    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.08);
-    transition: transform 0.2s ease;
+    display: flex;
+    justify-content: center;
+    gap: 2rem;
+    align-items: stretch;
+  }
 
-    &:hover {
-      transform: translateY(-4px);
-    }
+  .card-content {
+    display: grid;
+    grid-template-columns: 200px 1fr 1fr;
+    gap: 1.5rem;
+    align-items: start;
+    width: 100%;
+    max-width: 1200px;
+  }
 
-    h3 {
-      font-size: 1.5rem;
-      margin-bottom: 1rem;
-      color: #b13ba7;
+  
+  .label {
+    grid-column: 1 / -1;
+    text-align: left;
+    font-size: 2.4rem;
+    font-weight: bold;
+    margin-bottom: 1rem;
+    font-family: 'Uncial Antiqua', serif; 
+    color: #222;
+  }
+
+ 
+  .arcane-image {
+    img {
+      width: 100%;
+      max-width: 200px;
+      border-radius: 8px;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
     }
+  }
+
+  
+  .arcane-text {
+    background: #dce9d2; 
+    padding: 1.5rem;
+    border-radius: 20px;
+    font-size: 1rem;
+    line-height: 1.5;
+
+    h4 {
+      margin-bottom: 0.5rem;
+      font-weight: bold;
+      font-size: 1.3rem;
+    }
+  }
+
+  
+  .goddess {
+    background: #ffe2d6; 
+    padding: 1.5rem;
+    border-radius: 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
 
     img {
-      width: 180px;
-      height: auto;
-      border-radius: 10px;
-      margin-bottom: 1rem;
+      width: 100%;
+      max-width: 160px;
+      border-radius: 16px;
+      margin-bottom: 0.8rem;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.15);
     }
 
-    p {
-      position: static;
-      font-size: 1rem;
-      margin: 0.3rem 0;
-      color: #333;
+    h4 {
+      font-weight: bold;
+      font-size: 1.3rem;
+      margin-bottom: 0.5rem;
+      font-family: 'Uncial Antiqua', serif; 
+    }
 
-      strong {
-        color: #5e2b5e;
-      }
+
+    p {
+      font-size: 1rem;
+      line-height: 1.5;
+
+    }
+  }
+}
+.history-button {
+  display: flex;
+  justify-content: center;
+  margin-top: 2rem;
+
+  button {
+    background-color: #6b7f56; /* verde similar */
+    color: #fff;
+    font-family: 'Uncial Antiqua', serif;
+    font-size: 1.1rem;
+    font-weight: 600;
+    padding: 0.6rem 2rem;
+    border: none;
+    border-radius: 999px; /* súper redondeado */
+    cursor: pointer;
+    transition: background 0.3s ease;
+
+    &:hover {
+      background-color: #556642;
     }
   }
 }
