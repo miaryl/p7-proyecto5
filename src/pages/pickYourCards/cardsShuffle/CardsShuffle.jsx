@@ -15,7 +15,7 @@ function CardsShuffle() {
 
   const location = useLocation();
   const [currentUserId, setCurrentUserId] = useState(
-    location.state?.userId || null
+    location.state?.userId || localStorage.getItem("currentUserId") || null
   );
 
   const apiTarot = api();
