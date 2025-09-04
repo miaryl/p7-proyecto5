@@ -11,7 +11,7 @@ function CardsModal({show, cardSelected, cards, onShuffle, onResult}) {
       <h2>Tus 3 cartas</h2>
       <div className="chosen-cards">
         {cardSelected.map((id) => {
-          const card = cards.find((c) => c.id === id);
+          const card = cards.find((c) => String(c.id) === String(id));
           return <img key={id} src={card.arcaneImage.imageSrc} alt={card.arcaneName} />;
         })}
       </div>
