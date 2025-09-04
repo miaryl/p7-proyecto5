@@ -4,6 +4,7 @@ import Home from "./pages/home/Home.jsx";
 import CardsShuffle from "./pages/pickYourCards/cardsShuffle/CardsShuffle.jsx";
 import Reading from "./pages/reading/Reading.jsx";
 import { Toaster } from "react-hot-toast"; 
+import History from "./pages/history/History.jsx";
 
 function App() {
   return (
