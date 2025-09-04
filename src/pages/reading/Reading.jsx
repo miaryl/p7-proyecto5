@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import { useLocation } from "react-router-dom";
+import { useLocation, useNavigate } from "react-router-dom";
 import axios from "axios";
 import "./Reading.scss";
 
@@ -24,7 +24,12 @@ function Reading() {
     }
   }, [selectedCards]);
 
-  
+
+   const navigate = useNavigate();
+
+   const goHistory = () => {
+    navigate("/history");
+   }
   const labels = ["Pasado", "Presente", "Futuro"];
 
   return (
@@ -64,7 +69,7 @@ function Reading() {
         </div>
       ))}
       <div className="history-button">
-        <button onClick={() => navigate("/historial")}>
+        <button onClick={goHistory}>
           Ir al historial
         </button>
       </div>
