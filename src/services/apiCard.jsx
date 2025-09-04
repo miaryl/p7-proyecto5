@@ -16,6 +16,11 @@ export const api = ()=>{
         .then(res => res.data[0]);
     }
     
+    const getLastFiveUsers = () =>{
+        return apiCLient.get("/users?_sort=id&_order=desc&_limit=5")
+        .then(res => res.data);
+    }
+
     const addReading = (userId, cardIds) =>{
         return apiCLient.get(`/users/${userId}`).then(res=>{
             const user = res.data;
@@ -30,11 +35,20 @@ export const api = ()=>{
 
     };
 
-    
+    const getUser = (userId) => {
+       return apiCLient.get(`/users/${userId}`).then(res => res.data);
+    };
+
+    const getAllUsers= () =>{
+        return apiCLient.get("/users").then(res => res.data);
+    };
 
     return{
         getTarot,
         addReading,
-        getLastUser
+        getLastUser,
+        getLastFiveUsers,
+        getUser,
+        getAllUsers
     };
 };

@@ -1,0 +1,52 @@
+@import url('https://fonts.googleapis.com/css2?family=Lora:wght@400;500;600;700&display=swap');
+
+
+
+.saved-3cards {
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  gap: 30px;
+  
+  margin-bottom: 30px;
+}
+
+.saved-card {
+  display: flex;
+  flex-direction: row;  
+  align-items: flex-start;
+  gap: 20px; 
+  
+  img {
+    width: 150px;
+    height: 300px;
+    border-radius: 6px;
+  }
+
+  p {
+    font-family: 'Lora', serif;
+    font-weight: bold;
+    max-width: 200px;
+    font-size: 14px;
+    line-height: 1.4;
+    margin-left: 10px;
+  }
+
+}
+
+.name-date-wrapper{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 20px;
+    p{
+      font-family: 'Lora', serif;
+      font-weight: 600;
+      margin: 0 10px;
+    }
+}
+
+.btn-remove{
+  border-radius: 20%;
+  float: rght;
+}
