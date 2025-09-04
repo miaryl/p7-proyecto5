@@ -3,7 +3,7 @@ Somos una empresa de mujeres Developers Empoderadas.  Hemos desarrollado una apl
 
 ## Capturas de Pantalla 
 ### Home (/)
-<img width="1473" height="882" alt="Screenshot 2025-09-04 090236" src="https://github.com/user-attachments/assets/66bca437-f417-482b-bcde-22750c9a33bc" />
+<img width="1203" height="656" alt="Screenshot 2025-09-04 104349" src="https://github.com/user-attachments/assets/ef5cf1a9-8ae8-482b-831b-330f90667116" />
 
 ### Shuffle (/shuffle)
 <img width="1852" height="861" alt="Screenshot 2025-09-04 090313" src="https://github.com/user-attachments/assets/43591fe1-cbb9-4f03-bc61-35d6d285b964" />
