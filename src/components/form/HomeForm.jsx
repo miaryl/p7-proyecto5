@@ -40,6 +40,7 @@ function HomeForm() {
       localStorage.setItem("currentUserId", String(createdUser.id));
       localStorage.setItem("currentUserName", createdUser.name);
 
+
       toast.success("Nombre guardado con éxito");
       setName("");
       navigate("/shuffle"); 
