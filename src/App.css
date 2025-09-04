@@ -1,6 +1,17 @@
-.root {
-    background-color: #fdfcf6;
-    display: flex;
-    justify-content: center;
-    align-items: center;
+:root {
+  --header-h: 64px;
+  background-color: #fdfcf6;
+}
+
+body {
+  min-height: 100vh;
+  margin: 0; 
+  font-family: system-ui, sans-serif;
+  background-color: var(--header-h);
+}
+
+main,
+.page,
+.shuffle-page {
+  padding-top: var(--header-h);
 }
